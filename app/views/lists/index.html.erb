@@ -2,17 +2,34 @@
 <p>Find me in app/views/lists/index.html.erb</p> %>
 
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1>All lists</h1>
-      <ul class="list-group mb-3">
+
+      <div class="card-trip mb-3">
+        <img src="https://i.pinimg.com/564x/7f/40/be/7f40bec780c37debff704b88f94d4363.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h1>All lists</h1>
+            <p>Short description here!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-3">
         <% @lists.each do |list| %>
-          <li class="list-group-item d-flex justify-content-between align-items-center">
-            <%= link_to list.name, list_path(list) %>
-            <%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-danger' %></small>
-          </li>
+          <div class="col-12 col-lg-6 mb-3">
+            <div class="card-product">
+              <img class="card-image" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+              <div class="card-product-infos">
+                <h2><%= link_to list.name, list_path(list) %></h2>
+                <p><%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-danger' %></small></p>
+                <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/krokrob" />
+              </div>
+            </div>
+          </div>
+
         <% end %>
-      </ul>
+      </div>
       <%= link_to "Add a new list", new_list_path, class: 'btn btn-primary' %>
     </div>
   </div>

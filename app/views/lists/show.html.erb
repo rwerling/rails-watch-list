@@ -1,14 +1,27 @@
 <div class="container">
-  <div class="row">
+  <div class="row justify-content-center">
     <div class="col-xs-12 col-sm-10 col-sm-offset-1">
-      <h1><%= @list.name %></h1>
+
+      <div class="card-trip mb-3">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-trip-infos">
+          <div>
+            <h1><%= @list.name %></h1>
+            <p>Short description here!</p>
+          </div>
+          <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        </div>
+      </div>
 
       <div class="list-group">
         <% @list.bookmarks.each do |bookmark| %>
-          <li class="list-group-item">
-            <p><%= bookmark.movie.title %></p>
-            <p><%= bookmark.comment %></p>
-            <p><%= link_to 'Delete Bookmark', bookmark_path(bookmark) , data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-danger' %></small></p>
+          <li class="list-group-item d-flex">
+            <div class="left flex-grow-1">
+              <p><%= bookmark.movie.title %></p>
+              <p><%= bookmark.comment %></p>
+              <p><%= link_to 'Delete Bookmark', bookmark_path(bookmark) , data: { turbo_method: :delete }, class: 'text-danger' %></small></p>
+            </div>
+            <img class="movie-poster" src="https://i.etsystatic.com/19389619/r/il/b4518b/2598217185/il_fullxfull.2598217185_8bx4.jpg" alt="">
           </li>
         <% end %>
       </div>
