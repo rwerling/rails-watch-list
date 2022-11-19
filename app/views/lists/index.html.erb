@@ -19,7 +19,7 @@
         <% @lists.each do |list| %>
           <div class="col-12 col-lg-6 mb-3">
             <div class="card-product">
-              <img class="card-image" data-aos="zoom-in" src= <%= cl_image_path(list.photo.key) %> />
+              <img class="card-image" data-aos="zoom-in" src= <%= cl_image_path(list.photo.key, :cloud_name => "djsifxgi7") %> />
               <div class="card-product-infos">
                 <h2><%= link_to list.name, list_path(list) %></h2>
                 <p><%= link_to 'Delete List', list_path(list), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: 'text-danger' %></small></p>
